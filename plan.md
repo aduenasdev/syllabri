@@ -83,7 +83,7 @@ Stack: Next.js App Router · TypeScript · Tailwind CSS v4 · lucide-react · ne
 - [x] Fase 1 — Bootstrap
 - [x] Fase 2 — Sistema visual
 - [x] Fase 3 — Layout shell + routing
-- [ ] Fase 4 — Hero + Trust Band
+- [x] Fase 4 — Hero + Trust Band
 - [ ] Fase 5 — Sistemas + Arquitectura
 - [ ] Fase 6 — Casos + Workflow + Contacto
 - [ ] Fase 7 — Contenido & i18n
