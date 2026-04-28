@@ -42,28 +42,28 @@ export function HeroSection({ locale }: { locale: AppLocale }) {
     >
       {/* ── Text block ── */}
       <div className="flex max-w-3xl flex-col items-center gap-6 text-center">
-        <span className="inline-block rounded-full border border-line-strong bg-surface px-3 py-1 text-xs uppercase tracking-[0.22em] text-foreground-muted">
+        <span className="inline-block rounded-full border border-line-strong bg-surface px-3 py-1 text-xs uppercase tracking-[0.22em] text-foreground-muted motion-safe:animate-fade-up">
           {copy.eyebrow}
         </span>
 
-        <h1 className="font-display text-4xl font-medium leading-tight tracking-tight text-foreground sm:text-5xl md:text-6xl">
+        <h1 className="font-display text-4xl font-medium leading-tight tracking-tight text-foreground sm:text-5xl md:text-6xl motion-safe:animate-fade-up [animation-delay:120ms]">
           {copy.headline}
         </h1>
 
-        <p className="max-w-xl text-base leading-relaxed text-foreground-secondary">
+        <p className="max-w-xl text-base leading-relaxed text-foreground-secondary motion-safe:animate-fade-up [animation-delay:240ms]">
           {copy.supporting}
         </p>
 
-        <div className="mt-1 flex flex-wrap items-center justify-center gap-3">
+        <div className="mt-1 flex flex-wrap items-center justify-center gap-3 motion-safe:animate-fade-up [animation-delay:360ms]">
           <Link
             href={CTA.primary.href}
-            className="inline-flex items-center rounded-full bg-foreground px-5 py-2.5 text-sm font-medium text-background transition-colors duration-150 hover:bg-foreground-secondary"
+            className="inline-flex items-center rounded-full bg-foreground px-5 py-2.5 text-sm font-medium text-background transition-colors duration-150 hover:bg-foreground-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-cyan"
           >
             {CTA.primary.label[locale]}
           </Link>
           <a
             href="#architecture"
-            className="inline-flex items-center rounded-full border border-line-strong bg-surface px-5 py-2.5 text-sm font-medium text-foreground-secondary transition-colors duration-150 hover:border-accent-cyan hover:text-foreground"
+            className="inline-flex items-center rounded-full border border-line-strong bg-surface px-5 py-2.5 text-sm font-medium text-foreground-secondary transition-colors duration-150 hover:border-accent-cyan hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-cyan"
           >
             {copy.ctaSecondary}
           </a>
@@ -71,7 +71,7 @@ export function HeroSection({ locale }: { locale: AppLocale }) {
       </div>
 
       {/* ── Control-room panel ── */}
-      <div className="w-full max-w-4xl rounded-xl border border-line-subtle bg-surface-strong shadow-2xl">
+      <div className="w-full max-w-4xl rounded-xl border border-line-subtle bg-surface-strong shadow-2xl motion-safe:animate-fade-up [animation-delay:480ms]">
         {/* Top line glow */}
         <div
           className="h-px w-full rounded-t-xl opacity-80 [background-image:var(--panel-line-glow)]"

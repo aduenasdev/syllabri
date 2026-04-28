@@ -1,0 +1,24 @@
+{
+  "seo": {
+    "home": {
+      "title": "Syllabri — Applied software and AI",
+      "description": "We build AI systems that operate over real processes. Agents, RAG, and automation integrated with your data and infrastructure."
+    },
+    "agents": {
+      "title": "Agents — Syllabri",
+      "description": "Multi-agent systems for real operations. Connected knowledge, human oversight, and full process observability."
+    },
+    "solutions": {
+      "title": "Solutions — Syllabri",
+      "description": "Technology intelligence, decision support, operational copilots, and sovereign AI. Deployable software integrated with your systems."
+    },
+    "ecosystem": {
+      "title": "Ecosystem — Syllabri",
+      "description": "Open data layer, operational knowledge graph, memory and governance. The data and knowledge layer powering your agents."
+    },
+    "contact": {
+      "title": "Contact — Syllabri",
+      "description": "Start a technical discovery, scoped pilot, or strategic partnership. Direct conversation, no intermediaries."
+    }
+  }
+}

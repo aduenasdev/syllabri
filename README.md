@@ -11,12 +11,12 @@ El plan de trabajo visible del proyecto está en [plan.md](./plan.md).
 - [x] Fase 1 — Bootstrap
 - [x] Fase 2 — Sistema visual
 - [x] Fase 3 — Layout shell + routing
-- [ ] Fase 4 — Hero + Trust Band
-- [ ] Fase 5 — Sistemas + Arquitectura
-- [ ] Fase 6 — Casos + Workflow + Contacto
-- [ ] Fase 7 — Contenido & i18n
-- [ ] Fase 8 — Páginas internas
-- [ ] Fase 9 — Polish final
+- [x] Fase 4 — Hero + Trust Band
+- [x] Fase 5 — Sistemas + Arquitectura
+- [x] Fase 6 — Casos + Workflow + Contacto
+- [x] Fase 7 — Contenido & i18n
+- [x] Fase 8 — Páginas internas
+- [x] Fase 9 — Polish final
 
 ### Ver plan completo
 

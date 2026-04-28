@@ -7,6 +7,8 @@ import { SiteFooter } from "@/components/site/site-footer";
 import { SiteHeader } from "@/components/site/site-header";
 import { SitePreferencesProvider } from "@/components/site/site-preferences-provider";
 import { routing } from "@/i18n/routing";
+import type { AppLocale } from "@/i18n/routing";
+import { buildAlternates, getPageSeo, SITE_URL } from "@/lib/seo";
 import "../globals.css";
 
 const spaceGrotesk = Space_Grotesk({
@@ -44,10 +46,30 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  const safeLocale = hasLocale(routing.locales, locale)
-    ? locale
-    : routing.defaultLocale;
-  return METADATA[safeLocale];
+  const safeLocale = (
+    hasLocale(routing.locales, locale) ? locale : routing.defaultLocale
+  ) as AppLocale;
+  const seo = getPageSeo(safeLocale, "home");
+  const alternates = buildAlternates("/", safeLocale);
+  return {
+    title: seo.title,
+    description: seo.description,
+    alternates,
+    openGraph: {
+      title: seo.title,
+      description: seo.description,
+      url: alternates.canonical as string,
+      siteName: "Syllabri",
+      locale: safeLocale === "es" ? "es_ES" : "en_US",
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: seo.title,
+      description: seo.description,
+    },
+    metadataBase: new URL(SITE_URL),
+  };
 }
 
 const themeInitScript = `(function(){try{var d=document.documentElement;if(d.getAttribute('data-theme'))return;var m=document.cookie.match(/(?:^|; )theme=(dark|light)/);var t=m?m[1]:(window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark');d.setAttribute('data-theme',t);}catch(e){}})();`;
