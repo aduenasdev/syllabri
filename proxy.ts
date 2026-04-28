@@ -1,8 +1,22 @@
+import { NextResponse } from "next/server";
+import type { NextRequest } from "next/server";
 import createMiddleware from "next-intl/middleware";
 import { routing } from "./i18n/routing";
 
-export default createMiddleware(routing);
+const intlMiddleware = createMiddleware(routing);
+
+export function middleware(request: NextRequest) {
+  if (process.env.INCOMING_MODE === "true") {
+    const { pathname } = request.nextUrl;
+    if (pathname === "/incoming" || pathname.startsWith("/api/")) {
+      return NextResponse.next();
+    }
+    return NextResponse.redirect(new URL("/incoming", request.url));
+  }
+
+  return intlMiddleware(request);
+}
 
 export const config = {
-  matcher: ["/((?!api|_next|_vercel|.*\\..*).*)"],
+  matcher: ["/((?!_next|_vercel|.*\\..*).*)", "/api/(.*)"],
 };
