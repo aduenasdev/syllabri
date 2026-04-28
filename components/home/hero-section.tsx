@@ -71,26 +71,19 @@ export function HeroSection({ locale }: { locale: AppLocale }) {
       </div>
 
       {/* ── Control-room panel ── */}
-      <div className="w-full max-w-4xl rounded-xl border border-line-subtle bg-surface-strong shadow-2xl motion-safe:animate-fade-up [animation-delay:480ms]">
+      <div className="w-full max-w-4xl rounded-2xl border border-line-subtle bg-surface-strong shadow-2xl motion-safe:animate-fade-up [animation-delay:480ms]">
         {/* Top line glow */}
         <div
-          className="h-px w-full rounded-t-xl opacity-80 [background-image:var(--panel-line-glow)]"
+          className="h-px w-full rounded-t-2xl opacity-80 [background-image:var(--panel-line-glow)]"
           aria-hidden
         />
 
-        {/* Main flow row */}
-        <div className="flex items-center justify-between gap-2 px-6 py-6 md:px-10">
-          {/* Sources */}
+        {/* Main flow — vertical on mobile, horizontal on md+ */}
+        <div className="flex flex-col gap-0 p-6 md:flex-row md:items-center md:gap-0 md:px-10 md:py-8">
           <PanelNode label={copy.panelSources} accent="cyan" />
-
-          <FlowArrow />
-
-          {/* Decision Engine */}
+          <FlowConnector />
           <PanelNode label={copy.panelEngine} accent="cyan" primary />
-
-          <FlowArrow />
-
-          {/* Ops */}
+          <FlowConnector />
           <PanelNode label={copy.panelOps} accent="green" />
         </div>
 
@@ -98,7 +91,7 @@ export function HeroSection({ locale }: { locale: AppLocale }) {
         <div className="mx-6 border-t border-line-subtle md:mx-10" aria-hidden />
 
         {/* Governance bar */}
-        <div className="flex flex-wrap items-center justify-center gap-3 px-6 py-4 md:px-10">
+        <div className="flex flex-wrap items-center justify-center gap-2 px-6 py-4 md:gap-3 md:px-10">
           {[copy.panelGov, copy.panelAudit, copy.panelReview].map((label) => (
             <span
               key={label}
@@ -124,27 +117,28 @@ function PanelNode({
   accent: "cyan" | "green";
   primary?: boolean;
 }) {
-  const ringColor =
+  const dotColor = accent === "cyan" ? "bg-accent-cyan" : "bg-accent-green";
+  const dotGlow =
     accent === "cyan"
-      ? "border-accent-cyan/40 text-accent-cyan"
-      : "border-accent-green/40 text-accent-green";
+      ? "shadow-[0_0_10px_3px_color-mix(in_oklch,var(--accent-cyan),transparent_50%)]"
+      : "shadow-[0_0_10px_3px_color-mix(in_oklch,var(--accent-green),transparent_50%)]";
 
   return (
     <div
-      className={`flex flex-col items-center gap-2 rounded-lg border px-5 py-3 ${
-        primary ? "bg-surface border-line-strong" : "border-line-subtle bg-transparent"
+      className={`flex flex-row items-center gap-3 rounded-xl border px-4 py-3.5 transition-colors md:flex-1 md:flex-col md:items-center md:gap-3 md:px-6 md:py-5 ${
+        primary
+          ? "border-line-strong bg-surface shadow-sm"
+          : "border-line-subtle bg-transparent"
       }`}
     >
       <span
-        className={`inline-block size-2 rounded-full ${
-          accent === "cyan" ? "bg-accent-cyan" : "bg-accent-green"
-        }`}
+        className={`inline-flex size-2.5 shrink-0 rounded-full ${dotColor} ${primary ? dotGlow : ""}`}
         aria-hidden
       />
       <span
-        className={`text-xs font-medium tracking-wide ${
+        className={`text-sm font-medium leading-snug ${
           primary ? "text-foreground" : "text-foreground-secondary"
-        } ${ringColor}`}
+        }`}
       >
         {label}
       </span>
@@ -152,25 +146,36 @@ function PanelNode({
   );
 }
 
-function FlowArrow() {
+function FlowConnector() {
   return (
-    <div className="flex flex-1 items-center gap-0" aria-hidden>
-      <div className="h-px flex-1 bg-line-strong" />
-      <svg
-        width="12"
-        height="8"
-        viewBox="0 0 12 8"
-        fill="none"
-        className="text-line-strong"
-      >
-        <path
-          d="M1 4h10M7 1l4 3-4 3"
-          stroke="currentColor"
-          strokeWidth="1.4"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-      </svg>
+    <div className="flex shrink-0 flex-col items-center md:flex-row" aria-hidden>
+      {/* Mobile: vertical connector */}
+      <div className="flex flex-col items-center py-1 md:hidden">
+        <div className="h-3 w-px bg-line-strong" />
+        <svg width="8" height="6" viewBox="0 0 8 6" fill="none" className="text-line-strong">
+          <path
+            d="M1 1l3 4 3-4"
+            stroke="currentColor"
+            strokeWidth="1.4"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+        <div className="h-3 w-px bg-line-strong" />
+      </div>
+      {/* Desktop: horizontal connector */}
+      <div className="hidden md:flex md:w-6 md:items-center md:gap-0">
+        <div className="h-px flex-1 bg-line-strong" />
+        <svg width="6" height="8" viewBox="0 0 6 8" fill="none" className="shrink-0 text-line-strong">
+          <path
+            d="M1 1l4 3-4 3"
+            stroke="currentColor"
+            strokeWidth="1.4"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      </div>
     </div>
   );
 }
