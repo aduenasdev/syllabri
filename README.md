@@ -2,6 +2,26 @@
 
 Wireframe visual moderno para una web corporativa de software e IA aplicada, pensada para implementarse con Next.js App Router, TypeScript y Tailwind CSS.
 
+## Plan de implementación
+
+El plan de trabajo visible del proyecto está en [plan.md](./plan.md).
+
+### Estado actual
+
+- [x] Fase 1 — Bootstrap
+- [x] Fase 2 — Sistema visual
+- [x] Fase 3 — Layout shell + routing
+- [ ] Fase 4 — Hero + Trust Band
+- [ ] Fase 5 — Sistemas + Arquitectura
+- [ ] Fase 6 — Casos + Workflow + Contacto
+- [ ] Fase 7 — Contenido & i18n
+- [ ] Fase 8 — Páginas internas
+- [ ] Fase 9 — Polish final
+
+### Ver plan completo
+
+- [Abrir plan.md](./plan.md)
+
 ## 1. Objetivo
 
 Este README redefine la propuesta como una superficie comercial premium, sobria y técnicamente creible.
