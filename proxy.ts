@@ -5,7 +5,7 @@ import { routing } from "./i18n/routing";
 
 const intlMiddleware = createMiddleware(routing);
 
-export function middleware(request: NextRequest) {
+export default function proxy(request: NextRequest) {
   if (process.env.INCOMING_MODE === "true") {
     const { pathname } = request.nextUrl;
     if (pathname === "/incoming" || pathname.startsWith("/api/")) {
