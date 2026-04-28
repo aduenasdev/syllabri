@@ -56,7 +56,7 @@ pm2 restart syllabri
 
 # Desactivar
 sed -i 's/INCOMING_MODE=true/INCOMING_MODE=false/' .env.local
-pm2 restart syllabil
+pm2 restart syllabri
 ```
 
 ---
