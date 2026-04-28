@@ -65,6 +65,17 @@ const COPY = {
     formHeading: "Cuéntanos tu caso",
     formDescription: "Responderemos en menos de 24 horas hábiles.",
     orLabel: "o escríbenos directamente",
+    form: {
+      name: "Nombre",
+      email: "Email",
+      company: "Empresa",
+      message: "Mensaje",
+      submit: "Enviar mensaje",
+      sending: "Enviando…",
+      successTitle: "Mensaje recibido",
+      successDesc: "Nos pondremos en contacto en menos de 24 horas hábiles.",
+      errorDesc: "Algo falló. Intenta de nuevo o escríbenos directamente.",
+    },
   },
   en: {
     eyebrow: "Contact",
@@ -97,6 +108,17 @@ const COPY = {
     formHeading: "Tell us about your case",
     formDescription: "We will reply within 24 business hours.",
     orLabel: "or write to us directly",
+    form: {
+      name: "Name",
+      email: "Email",
+      company: "Company",
+      message: "Message",
+      submit: "Send message",
+      sending: "Sending…",
+      successTitle: "Message received",
+      successDesc: "We will get back to you within 24 business hours.",
+      errorDesc: "Something went wrong. Try again or write to us directly.",
+    },
   },
 } as const;
 
@@ -157,7 +179,7 @@ export default async function ContactPage() {
               {copy.formDescription}
             </p>
           </div>
-          <ContactForm locale={locale} />
+          <ContactForm copy={copy.form} />
         </div>
 
         {/* Direct contact column */}

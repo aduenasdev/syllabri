@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 420" fill="none">
+  <!-- Background -->
+  <rect width="640" height="420" fill="#07111A"/>
+
+  <!-- Subtle grid -->
+  <defs>
+    <pattern id="grid" width="44" height="44" patternUnits="userSpaceOnUse">
+      <path d="M 44 0 L 0 0 0 44" fill="none" stroke="rgba(151,176,196,0.055)" stroke-width="1"/>
+    </pattern>
+    <radialGradient id="glow-c" cx="50%" cy="50%" r="45%">
+      <stop offset="0%" stop-color="#3FD0C9" stop-opacity="0.13"/>
+      <stop offset="100%" stop-color="#3FD0C9" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow-node" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#3FD0C9" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#3FD0C9" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="640" height="420" fill="url(#grid)"/>
+  <rect width="640" height="420" fill="url(#glow-c)"/>
+
+  <!-- Outer orbital ring -->
+  <circle cx="320" cy="210" r="148" stroke="#3FD0C9" stroke-width="0.75" stroke-opacity="0.1" stroke-dasharray="4 7"/>
+  <circle cx="320" cy="210" r="108" stroke="#3FD0C9" stroke-width="0.75" stroke-opacity="0.14" stroke-dasharray="3 6"/>
+
+  <!-- Connection lines to satellites -->
+  <line x1="320" y1="210" x2="150" y2="118" stroke="#3FD0C9" stroke-width="1" stroke-opacity="0.28" stroke-dasharray="5 5"/>
+  <line x1="320" y1="210" x2="490" y2="118" stroke="#3FD0C9" stroke-width="1" stroke-opacity="0.28" stroke-dasharray="5 5"/>
+  <line x1="320" y1="210" x2="130" y2="278" stroke="#72E6A6" stroke-width="1" stroke-opacity="0.22" stroke-dasharray="5 5"/>
+  <line x1="320" y1="210" x2="510" y2="278" stroke="#72E6A6" stroke-width="1" stroke-opacity="0.22" stroke-dasharray="5 5"/>
+  <line x1="320" y1="210" x2="320" y2="76"  stroke="#3FD0C9" stroke-width="1" stroke-opacity="0.18" stroke-dasharray="5 5"/>
+
+  <!-- Satellite nodes — top-left -->
+  <circle cx="150" cy="118" r="9" fill="#0C1822" stroke="#3FD0C9" stroke-width="1.5" stroke-opacity="0.55"/>
+  <circle cx="150" cy="118" r="3.5" fill="#3FD0C9" fill-opacity="0.5"/>
+
+  <!-- Satellite nodes — top-right -->
+  <circle cx="490" cy="118" r="9" fill="#0C1822" stroke="#3FD0C9" stroke-width="1.5" stroke-opacity="0.55"/>
+  <circle cx="490" cy="118" r="3.5" fill="#3FD0C9" fill-opacity="0.5"/>
+
+  <!-- Satellite nodes — bottom-left -->
+  <circle cx="130" cy="278" r="7" fill="#0C1822" stroke="#72E6A6" stroke-width="1.5" stroke-opacity="0.45"/>
+  <circle cx="130" cy="278" r="2.5" fill="#72E6A6" fill-opacity="0.45"/>
+
+  <!-- Satellite nodes — bottom-right -->
+  <circle cx="510" cy="278" r="7" fill="#0C1822" stroke="#72E6A6" stroke-width="1.5" stroke-opacity="0.45"/>
+  <circle cx="510" cy="278" r="2.5" fill="#72E6A6" fill-opacity="0.45"/>
+
+  <!-- Satellite node — top -->
+  <circle cx="320" cy="76" r="5.5" fill="#0C1822" stroke="#3FD0C9" stroke-width="1" stroke-opacity="0.35"/>
+  <circle cx="320" cy="76" r="2" fill="#3FD0C9" fill-opacity="0.3"/>
+
+  <!-- Central engine glow -->
+  <rect x="244" y="174" width="152" height="72" rx="16" fill="url(#glow-node)" opacity="0.7"/>
+
+  <!-- Central engine panel -->
+  <rect x="252" y="178" width="136" height="64" rx="12" fill="#0C1822" stroke="#3FD0C9" stroke-width="1.5" stroke-opacity="0.7"/>
+  <rect x="258" y="184" width="124" height="52" rx="9" fill="#10202B"/>
+
+  <!-- Top line glow on panel -->
+  <rect x="258" y="184" width="124" height="2" rx="1" fill="#3FD0C9" fill-opacity="0.5"/>
+
+  <!-- 3-node flow inside engine: sources → engine → ops -->
+  <!-- Left dot -->
+  <circle cx="286" cy="210" r="6" fill="#3FD0C9" fill-opacity="0.6"/>
+  <!-- Left line -->
+  <line x1="292" y1="210" x2="300" y2="210" stroke="#3FD0C9" stroke-width="1.5" stroke-opacity="0.5"/>
+  <!-- Center rect -->
+  <rect x="300" y="203" width="20" height="14" rx="4" fill="#3FD0C9" fill-opacity="0.9"/>
+  <!-- Right line -->
+  <line x1="320" y1="210" x2="328" y2="210" stroke="#72E6A6" stroke-width="1.5" stroke-opacity="0.5"/>
+  <!-- Right dot -->
+  <circle cx="334" cy="210" r="6" fill="#72E6A6" fill-opacity="0.6"/>
+</svg>
