@@ -81,7 +81,15 @@ curl http://localhost:3010
 
 ---
 
-## Nginx como proxy inverso (opcional)
+## Nginx como proxy inverso + SSL
+
+### 1. Crear el archivo de configuración
+
+```sh
+nano /etc/nginx/sites-available/syllabri-frontend.conf
+```
+
+Contenido:
 
 ```nginx
 server {
@@ -99,6 +107,48 @@ server {
 }
 ```
 
+### 2. Activar el sitio
+
 ```sh
-nginx -t && systemctl reload nginx
+ln -s /etc/nginx/sites-available/syllabri-frontend.conf /etc/nginx/sites-enabled/
 ```
+
+### 3. Probar sintaxis
+
+```sh
+nginx -t
+```
+
+### 4. Recargar Nginx
+
+```sh
+systemctl reload nginx
+```
+
+### 5. Emitir certificado SSL con Certbot
+
+```sh
+certbot --nginx -d syllabri.com -d www.syllabri.com
+```
+
+Certbot emite el certificado, inserta el bloque SSL, configura la redirección 80 → 443 y recarga Nginx automáticamente.
+
+### 6. Verificar que el servicio interno corre en 3010
+
+```sh
+ss -tulpn | grep 3010
+```
+
+### 7. Probar HTTPS
+
+```sh
+curl -I https://syllabri.com
+```
+
+### Resultado final
+
+`syllabri.com` queda:
+- Servido por Nginx
+- Redirigido a HTTPS automáticamente
+- Con certificado Let's Encrypt activo
+- Proxy inverso hacia el frontend en puerto 3010
