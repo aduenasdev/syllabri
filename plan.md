@@ -85,7 +85,7 @@ Stack: Next.js App Router · TypeScript · Tailwind CSS v4 · lucide-react · ne
 - [x] Fase 3 — Layout shell + routing
 - [x] Fase 4 — Hero + Trust Band
 - [x] Fase 5 — Sistemas + Arquitectura
-- [ ] Fase 6 — Casos + Workflow + Contacto
+- [x] Fase 6 — Casos + Workflow + Contacto
 - [ ] Fase 7 — Contenido & i18n
 - [ ] Fase 8 — Páginas internas
 - [ ] Fase 9 — Polish final
