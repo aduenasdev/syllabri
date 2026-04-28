@@ -1,6 +1,8 @@
 import { getLocale } from "next-intl/server";
 import type { AppLocale } from "@/i18n/routing";
+import { ArchitectureSection } from "@/components/home/architecture-section";
 import { HeroSection } from "@/components/home/hero-section";
+import { SystemsSection } from "@/components/home/systems-section";
 import { TrustBand } from "@/components/home/trust-band";
 
 export default async function HomePage() {
@@ -10,6 +12,8 @@ export default async function HomePage() {
     <>
       <HeroSection locale={locale} />
       <TrustBand locale={locale} />
+      <SystemsSection locale={locale} />
+      <ArchitectureSection locale={locale} />
     </>
   );
 }
